@@ -18,6 +18,7 @@ class Graph {
     // Adicionando Arestas;
     addEdge(v, w) {
       this.listAdj.get(v).push(w);
+      this.listAdj.get(w).push(v);
     }
     // Auxiliar 
     print() {
@@ -33,50 +34,40 @@ class Graph {
         console.log(i + ' -> ' + sum);
       }
     }
-    dijkstra(start) {
+    AproximateVertexCover(){
+        var size = this.vertex,
+          apVertex = [];
 
-        var path = {};
-            path[start] = [],
-            path[start].dist = 0;
-        
-        while(1) {
+        var visited = [size];
 
-          var parent= null,
-            P = null,
-            dist = Infinity;
-         
-          for(var j in path) {
+        for (var i=0; i<size; ++i) visited[i] = false;
+  
+        var vertex = this.listAdj.keys();
+        for (var j of vertex) {
 
-            if(!path[j]){
-                continue;
-            }
-              
-            var distN = path[j].dist;
-            var adj = this.listAdj.get(j);
-            
-            for(var i in adj) {
+            if (!visited[j]){
 
-                if(path[i]){
-                    continue;
-                }
+                var listAdj = this.listAdj.get(j);
 
-                var d = adj[i] + distN;
-              
-                if(d < dist) {
-                    parent = path[j];
-                    P = i;
-                    dist = d;
+                for (i = 0; i<listAdj.length; ++i){
+                    var value = listAdj[i];
+                    if (!visited[value]){
+                          visited[value] = true;
+                          visited[j]  = true;
+                            break;
+                    }
                 }
             }
-          }
-     
-          if(dist === Infinity) break;
-          path[P] = parent.concat(P);
-          path[P].dist = dist;
+
         }
-        
-        return path;
-      }
+        for(var i = 0; i < size; ++i)
+          if(visited[i]){
+              apVertex.push(visited[i]);
+              console.log(i);
+          }
+            
+    }
+    
    
   }
   
