@@ -10,7 +10,7 @@
 | 17/0020525  |  Pedro Henrique de Lima Malaquias |
 
 ## Sobre 
-Dado um grafo, o usuário terá que analisar e responder menor número (aproximadamente) de dispositivos, capazes de infectar a maioria dos outros usuários conectados. Considerando que as vertices do grafo são dispositivos, e as arestas, são conexões entre os dispositivos. 
+Dado um grafo, o usuário terá que analisar e responder :Qual o menor número (aproximadamente) de dispositivos, capazes de infectar a maioria dos outros usuários conectados. Considerando que as vertices do grafo são dispositivos, e as arestas, são conexões entre os dispositivos. 
 
 ## Screenshots
 ![](src/images/explicacao.png)
