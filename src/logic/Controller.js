@@ -72,7 +72,17 @@ var data = {
 var options = {};
 var network = new vis.Network(container, data, options);
 
+function feedback(value) {
 
-app.listen(3030, () =>{
-    console.log("App Running!");
-})
+  var result = Math.max(value,users.length) - Math.min(value,users.length);
+
+  if(result < 3 && result != 0){
+      alert(`Parabéns, sua resposta está proxima de ótima (Aproximadamente) Nomes : ${PQ}`);
+  }
+  else if(!result){
+    alert(`Parabéns, sua resposta está correta (Aproximada da ótima) Nomes : ${PQ}`);
+  }
+  else{
+      alert("Resposta incorreta");
+  }
+}
