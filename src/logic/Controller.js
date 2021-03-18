@@ -53,16 +53,24 @@ for (var j = 0; j < names.length; ++j) {
   
   }
 
-app.use(express.static('public'));
-app.use(bodyParser.urlencoded({extended : true}));
-app.use(bodyParser.json());
+}
+computerUser.AproximateVertexCover();
+var users = computerUser.getApVertex();
 
+var PQ = [];
 
-app.get("/", (req, res) => {
-    res.render("home");
-})
+for(var i = 0; i< users.length; ++i)PQ.push(names[users[i]]);
 
+var nodes = new vis.DataSet(nodesArray);
+var edges = new vis.DataSet(edgesArray);
 
+var container = document.getElementById("mynetwork");
+var data = {
+    nodes: nodes,
+    edges: edges
+};
+var options = {};
+var network = new vis.Network(container, data, options);
 
 
 app.listen(3030, () =>{
