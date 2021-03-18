@@ -3,7 +3,7 @@ class Graph {
     constructor(vertex) {
       this.vertex = vertex;
       this.listAdj = new Map(); 
-      this.apVertex = [];
+      this.apVertex = []; // Priority users
     }
     // Get 
     getApVertex(){
@@ -38,13 +38,17 @@ class Graph {
         console.log(i + ' -> ' + sum);
       }
     }
-    AproximateVertexCover(){
+    // Aproximate Vertex Cover algorithm 
+    AproximateVertexCover () {
         var size = this.vertex,
-          visited = [size];
-
+          visited = [size],
+          vertex = this.listAdj.keys();
+        
+        //Iniciando todos como não visitados
         for (var i=0; i<size; ++i) visited[i] = false;
   
-        var vertex = this.listAdj.keys();
+        
+        //Para cada vertice do grafo
         for (var j of vertex) {
 
             if (!visited[j]){
@@ -52,12 +56,14 @@ class Graph {
                 var listAdj = this.listAdj.get(j);
 
                 for (i = 0; i<listAdj.length; ++i){
+                    
                     var value = listAdj[i];
-                    if (!visited[value]){
+
+                      if (!visited[value]){
                           visited[value] = true;
                           visited[j]  = true;
                             break;
-                    }
+                      }
                 }
             }
 
