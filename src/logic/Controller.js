@@ -60,11 +60,15 @@ for (var j = 0; j < names.length; ++j) {
 
 }
 // Rodando Algoritmo - VertexCover(Aproximado);
+computerUser.AproximateVertexCover();
 var users = computerUser.getApVertex();
 
 // Adicionando Usuarios com maiores suspeitas
 var PQ = [];
-for(var i = 0; i< users.length; ++i)PQ.push(names[users[i]]);
+for(var i = 0; i< users.length; ++i){
+  PQ.push(names[users[i]]);
+  console.log(names[users[i]]);
+}
 
 
 // Adicionando View Vis.js baseada no browser
