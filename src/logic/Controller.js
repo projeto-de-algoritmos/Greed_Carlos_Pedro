@@ -1,7 +1,7 @@
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const path = require('path');
+let computerUser = new Graph(names.length);
+var nodesArray = [],
+    edgesArray = [];
+
 
 app.set('views', path.join(__dirname,"..", 'views'));
 app.set('view engine', 'ejs');
