@@ -2,6 +2,35 @@ let computerUser = new Graph(names.length);
 var nodesArray = [],
     edgesArray = [];
 
+// Busca para verificar se a vertice já foi adicionada anteriormente
+var validate = (array, index, size) => {
+
+  var esq = -1,
+    dir = size;
+
+  while (esq < dir - 1) {
+      var half = (esq + dir) / 2;
+      if (array[half] < index) esq = half;
+      else dir = half;
+  }
+  
+  return dir === index ? false : true;
+
+};
+function find (j,vertex) {
+
+    var list = computerUser.getValues(j);
+    var list2 = computerUser.getValues(vertex);
+    
+    for(var i=0; i<list;++i) 
+      if(list[i]==vertex) return 0;
+    
+    for(var i=0; i<list2;++i) 
+      if(list2[i]==j) return 0;
+
+    return 1;
+}
+// Adicionando Vertice;
 for (var i = 0; i < names.length; ++i) {
     computerUser.addVertex(i);
         nodesArray.push({ id: i, label: names[i]})
