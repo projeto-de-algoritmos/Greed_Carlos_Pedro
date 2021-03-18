@@ -3,10 +3,14 @@ class Graph {
     constructor(vertex) {
       this.vertex = vertex;
       this.listAdj = new Map(); 
+      this.apVertex = [];
     }
     // Get 
+    getApVertex(){
+      return this.apVertex;
+    }
     getKeys() {
-      return this.lis1tAdj.keys();
+      return this.listAdj.keys();
     }
     getValues(i) {
       return this.listAdj.get(i);
@@ -36,9 +40,7 @@ class Graph {
     }
     AproximateVertexCover(){
         var size = this.vertex,
-          apVertex = [];
-
-        var visited = [size];
+          visited = [size];
 
         for (var i=0; i<size; ++i) visited[i] = false;
   
@@ -62,13 +64,10 @@ class Graph {
         }
         for(var i = 0; i < size; ++i)
           if(visited[i]){
-              apVertex.push(visited[i]);
+              this.apVertex.push(i);
               console.log(i);
           }
             
     }
-    
-   
-  }
-  
-  module.exports = Graph;
+}
+module.exports = Graph;
