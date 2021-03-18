@@ -1,22 +1,25 @@
+// Criando Grafo base
 let computerUser = new Graph(names.length);
 var nodesArray = [],
     edgesArray = [];
 
-// Busca para verificar se a vertice já foi adicionada anteriormente
+// Busca para verificar se a vértice já foi adicionada anteriormente no loop;
 var validate = (array, index, size) => {
 
-  var esq = -1,
-    dir = size;
+    var esq = -1,
+      dir = size;
 
-  while (esq < dir - 1) {
+    while (esq < dir - 1) {
       var half = (esq + dir) / 2;
       if (array[half] < index) esq = half;
       else dir = half;
-  }
+    }
   
-  return dir === index ? false : true;
+    return dir === index ? false : true;
 
 };
+
+// Busca para verificar se a vértice já foi adicionada anteriormente para visualização
 function find (j,vertex) {
 
     var list = computerUser.getValues(j);
@@ -30,6 +33,8 @@ function find (j,vertex) {
 
     return 1;
 }
+
+
 // Adicionando Vertice;
 for (var i = 0; i < names.length; ++i) {
     computerUser.addVertex(i);
@@ -54,13 +59,15 @@ for (var j = 0; j < names.length; ++j) {
   }
 
 }
-computerUser.AproximateVertexCover();
+// Rodando Algoritmo - VertexCover(Aproximado);
 var users = computerUser.getApVertex();
 
+// Adicionando Usuarios com maiores suspeitas
 var PQ = [];
-
 for(var i = 0; i< users.length; ++i)PQ.push(names[users[i]]);
 
+
+// Adicionando View Vis.js baseada no browser
 var nodes = new vis.DataSet(nodesArray);
 var edges = new vis.DataSet(edgesArray);
 
@@ -72,6 +79,8 @@ var data = {
 var options = {};
 var network = new vis.Network(container, data, options);
 
+
+// FeedBack Function 
 function feedback(value) {
 
   var result = Math.max(value,users.length) - Math.min(value,users.length);
@@ -79,9 +88,11 @@ function feedback(value) {
   if(result < 3 && result != 0){
       alert(`Parabéns, sua resposta está proxima de ótima (Aproximadamente) Nomes : ${PQ}`);
   }
+
   else if(!result){
     alert(`Parabéns, sua resposta está correta (Aproximada da ótima) Nomes : ${PQ}`);
   }
+
   else{
       alert("Resposta incorreta");
   }
