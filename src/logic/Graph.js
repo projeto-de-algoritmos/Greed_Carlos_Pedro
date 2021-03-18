@@ -71,7 +71,7 @@ class Graph {
         for(var i = 0; i < size; ++i)
           if(visited[i]){
               this.apVertex.push(i);
-              console.log(i);
+              //console.log(i);
           }
             
     }
