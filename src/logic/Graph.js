@@ -39,7 +39,8 @@ class Graph {
       }
     }
     // Aproximate Vertex Cover algorithm 
-    AproximateVertexCover () {
+    AproximateVertexCover ()  {
+      
         var size = this.vertex,
           visited = [size],
           vertex = this.listAdj.keys();
@@ -51,7 +52,6 @@ class Graph {
         //Para cada vertice do grafo
         for (var j of vertex) 
         {
-
             if (!visited[j])
             {
 
@@ -70,7 +70,6 @@ class Graph {
                       }
                 }
             }
-
         }
         for(var i = 0; i < size; ++i)
           if(visited[i]){
