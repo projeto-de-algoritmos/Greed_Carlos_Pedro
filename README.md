@@ -14,6 +14,7 @@ Dado um grafo, o usuário terá que analisar e responder :Qual o menor número (
 
 ## Screenshots
 ![](src/images/explicacao.png)
+![](src/images/newGraph.png)
 ![](src/images/graphvisualization.png)
 ![](src/images/numberOfDevices.png)
 
