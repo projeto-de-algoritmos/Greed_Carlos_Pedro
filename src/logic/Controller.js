@@ -80,7 +80,12 @@ var data = {
     nodes: nodes,
     edges: edges
 };
-var options = {};
+var options = 
+{
+  edges: {color: 'white'},
+  nodes: {color:'#FFD700', font:'16px arial black', shape: 'database'},
+  groups:{useDefaultGroups: true}
+};
 var network = new vis.Network(container, data, options);
 
 
@@ -89,7 +94,7 @@ function feedback(value) {
 
   var result = Math.max(value,users.length) - Math.min(value,users.length);
 
-  if(result < 3 && result != 0){
+  if(result <= 3 && result != 0){
       alert(`Parabéns, sua resposta está proxima de ótima (Aproximadamente) Nomes : ${PQ}`);
   }
 
