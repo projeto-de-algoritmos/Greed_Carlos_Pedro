@@ -21,6 +21,10 @@
                 /* border: 1px solid lightgray; */
             }
         }
+        body
+        {
+                background-color: #363636 ;
+        }
       </style>
  
     
@@ -29,19 +33,19 @@
     
     <div id=container class="container">
         <div class="card">
-            <div class="card-header">
-                <h1>Worm domination</h1>
-                <p class="text-break">O worm é um malware muito perigoso. Programas maliciosos autônomos que se replicam e se propagam por redes de computadores, USB e outros tipos de conexões. Tem propagação é rápida e ocorre sem controle da usuário.
-                    Analise o grafo abaixo, e responda : O <b>menor número (aproximadamente)</b> de dispositivos, capazes de infectar a maioria dos usuários (subgrafo).
+            <div class="card-header" style="background-color:#363636;">
+                <h1 style="text-align:center;color:white;">Worm Domination</h1><br>
+                <p class="text-break" style="color:white;">O worm é um malware muito perigoso. Programas maliciosos autônomos que se replicam e se propagam por redes de computadores, USB e outros tipos de conexões. Tem propagação é rápida e ocorre sem controle da usuário.
+                    Analise o grafo abaixo, e responda : O <b>menor número (aproximadamente)</b> de dispositivos, capazes de infectar a maioria do grupo de dispositivos (subgrafo).
                 </p>
-                <div class="d-grid gap-2"><input type="button" value="Novo Grafo" onClick="history.go(0)" class="btn btn-dark"></div> 
+                <div class="d-grid gap-2"><input type="button" value="Novo Grafo" onClick="history.go(0)" class="btn btn-info"></div> 
             </div>
-            <div class="card-body">
+            <div class="card-body" style="background-color:#363636;">
                 <div id="mynetwork"></div>
             </div>
-            <div class="card-footer">
+            <div class="card-footer" style="background-color:#363636;">
                 <input id="entrada" type="number" placeholder="Number of devices" class="form-control me-2"><br>
-                <div class="d-grid gap-2"><button id="resposta" class="btn btn-dark" type="submit" onclick="feedback(entrada.value)">Enviar</button></div>
+                <div class="d-grid gap-2"><button id="resposta" class="btn btn-info" type="submit" onclick="feedback(entrada.value)">Enviar</button></div>
             </div>
         </div>
     </div>
