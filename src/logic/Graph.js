@@ -49,20 +49,24 @@ class Graph {
   
         
         //Para cada vertice do grafo
-        for (var j of vertex) {
+        for (var j of vertex) 
+        {
 
-            if (!visited[j]){
+            if (!visited[j])
+            {
 
                 var listAdj = this.listAdj.get(j);
 
-                for (i = 0; i<listAdj.length; ++i){
+                for (i = 0; i<listAdj.length; ++i)
+                {
                     
                     var value = listAdj[i];
 
-                      if (!visited[value]){
+                      if (!visited[value])
+                      {
                           visited[value] = true;
                           visited[j]  = true;
-                            break;
+                          break;
                       }
                 }
             }
